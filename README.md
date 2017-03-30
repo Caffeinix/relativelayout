@@ -46,7 +46,7 @@ RelativeConstraints objects are just sets of Bindings, which actually determine 
 
 The simplest way to create an interface with RelativeLayout is to use the BindingFactory class to generate bindings for you.  Doing this is pretty straightforward; just create a BindingFactory object, specify the margin sizes and control spacing you want (or just accept the defaults), and then call the various positioning methods to churn out Bindings.  For example, let's say we want to create this very simple interface:
 
-[[https://github.com/Caffeinix/relativelayout/blob/master/img/simpleinterface1.png]]
+![](https://github.com/Caffeinix/relativelayout/blob/master/img/simpleinterface1.png)
 
 We can do this with BindingFactory with the following code (note that in this example, we sacrifice brevity for clarity, so this is a lot more code than you'd actually have to write for this):
 
@@ -84,11 +84,11 @@ And that's all there is to it.
 
 Let's try a slightly more interesting interface.  Here's what it looks like when it's small:
 
-[[https://github.com/Caffeinix/relativelayout/blob/master/img/simpleinterface2a.png]]
+![](https://github.com/Caffeinix/relativelayout/blob/master/img/simpleinterface2a.png)
 
 and here's what it looks like when you resize it to be larger:
 
-[[https://github.com/Caffeinix/relativelayout/blob/master/img/simpleinterface2b.png]]
+![](https://github.com/Caffeinix/relativelayout/blob/master/img/simpleinterface2b.png)
 
 Believe it or not, this interface is almost as easy to create as the first one.  The key is to think about which controls depend on other controls, and how.  Here's the code:
 
@@ -140,7 +140,7 @@ Not bad!  Now, you may be wondering why we didn't specify every edge of every co
 
 In the above example, we made a potentially dangerous assumption.  We placed the input field to the left of the Send button, aligned them both to the bottom edge of the window, and then put the text pane above the input field.  That works great as long as the Send button is the same height as the input field, but what if it's not?
 
-[[https://github.com/Caffeinix/relativelayout/blob/master/img/simpleinterface2c.png]]
+![](https://github.com/Caffeinix/relativelayout/blob/master/img/simpleinterface2c.png)
 
 Hm, that's no good.  Fortunately, there are always multiple different layouts that will result in basically the same interface, so we can fix the problem by switching to another one that doesn't make that assumption.  Let's change how the text pane is defined:
 
@@ -165,7 +165,7 @@ RelativeConstraints inputFieldConstraints
 
 Now our interface looks like this:
 
-[[https://github.com/Caffeinix/relativelayout/blob/master/img/simpleinterface2d.png]]
+![](https://github.com/Caffeinix/relativelayout/blob/master/img/simpleinterface2d.png)
 
 We call this a degenerate layout because if the Send button was the same size as in the initial screen shots, this code would result in exactly the same positioning of the controls.  The difference is that they would be positioned there for a different _reason_.  This gives you as the designer a way of writing your intent into the code so that it will be especially robust.
 
@@ -173,7 +173,7 @@ We call this a degenerate layout because if the Send button was the same size as
 
 Although BindingFactory is sufficient for many interfaces, some more complex interfaces require a bit more flexibility.  For example, consider this interface:
 
-[[https://github.com/Caffeinix/relativelayout/blob/master/img/simpleinterface3.png]]
+![](https://github.com/Caffeinix/relativelayout/blob/master/img/simpleinterface3.png)
 
 Although this seems straightforward at first, creating this interface with a BindingFactory would be troublesome.  Here's how we could do it (but feel free to skip this, because it's a bad idea):
 
@@ -310,8 +310,8 @@ Notice that the first four arguments to the constructor for Binding can instead 
 
 RelativeLayout is intended to make creating most interfaces, both simple and complex, as easy and painless as possible.  While this undoubtedly makes designing 95% of the interfaces you will want to create much easier than they would otherwise be, there are occasional interface designs that simply cannot be achieved.  For example, consider this interface (before and after resizing):
 
-[[https://github.com/Caffeinix/relativelayout/blob/master/img/impossible1.png]]
-[[https://github.com/Caffeinix/relativelayout/blob/master/img/impossible2.png]]
+![](https://github.com/Caffeinix/relativelayout/blob/master/img/impossible1.png)
+![](https://github.com/Caffeinix/relativelayout/blob/master/img/impossible2.png)
 
 Well, sure, we can do that.  Here:
 
@@ -336,7 +336,7 @@ No problem.  We just use the horizontal center of the window as our anchor and o
 
 Okay, so what about this one?
 
-[[https://github.com/Caffeinix/relativelayout/blob/master/img/impossible3.png]]
+![](https://github.com/Caffeinix/relativelayout/blob/master/img/impossible3.png)
 
 Assuming the same proportional resizing behavior, we can do this one by...  well, actually, we can't.  At all.  It's impossible, because we'd need to anchor to a point one-third of the distance from the left edge of the window to the right edge, minus half the distance between the panels, minus the left margin.  Apart from being head-explodingly unintuitive, we simply don't have the language we need to say that.  So what do we do?  We do this:
 
